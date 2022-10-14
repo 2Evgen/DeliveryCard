@@ -36,13 +36,13 @@ class DeliveryTest {
         $("[data-test-id='phone'] input").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $(".button_view_extra").click();
-        success.$x(".//div[@class='notification__content']").should(text("Встреча успешно запланирована на " + firstMeetingDate));
+        success.$x("//div[@class='notification__content']").should(text("Успешно! Встреча успешно запланирована на " + firstMeetingDate));
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").setValue(secondMeetingDate);
         $(".button_view_extra").click();
-        replan.$x(".//div[@class='notification__content']").shouldHave(exactText("Необходимо подтверждение У вас уже запланирована встреча на другую дату. Перепланировать?"));
+        replan.$x("//div[@class='notification__content']").shouldHave(exactText("Необходимо подтверждение У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $("[data-test-id='replan-notification'] .button").click();
-        success.$x(".//div[@class='notification__content']").should(text("Встреча успешно запланирована на " + secondMeetingDate));
+        success.$x("//div[@class='notification__content']").should(text("Встреча успешно запланирована на " + secondMeetingDate));
     }
 
 }
